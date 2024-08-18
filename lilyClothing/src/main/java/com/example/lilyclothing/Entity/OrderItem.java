@@ -33,8 +33,4 @@ public class OrderItem {
     private Product product;
 
 
-    private Long id;
-    private Integer quantity;
-    private Double price;
-
 }

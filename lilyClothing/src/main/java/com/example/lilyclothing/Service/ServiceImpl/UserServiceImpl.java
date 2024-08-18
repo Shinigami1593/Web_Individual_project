@@ -6,6 +6,7 @@ import com.example.lilyclothing.Pojo.UserPojo;
 import com.example.lilyclothing.Repository.UserRepository;
 import com.example.lilyclothing.Service.UserService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +14,8 @@ import java.util.List;
 @Service
 @RequiredArgsConstructor
 public class UserServiceImpl implements UserService {
-    private final UserRepository userRepository;
+    @Autowired
+    private UserRepository userRepository;
 
     @Override
     public void saveData(UserPojo userPojo) {

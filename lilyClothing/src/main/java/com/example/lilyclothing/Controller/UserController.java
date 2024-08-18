@@ -2,6 +2,7 @@ package com.example.lilyclothing.Controller;
 
 
 import com.example.lilyclothing.Entity.User;
+import com.example.lilyclothing.Pojo.AuthPojo;
 import com.example.lilyclothing.Pojo.UserPojo;
 import com.example.lilyclothing.Service.UserService;
 import lombok.RequiredArgsConstructor;
@@ -12,13 +13,14 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/app_users")
 @RequiredArgsConstructor
 public class UserController {
     private final UserService userService;
 
     @PostMapping("/save")
     public void save(@RequestBody UserPojo userPojo) {
+
         userService.saveData(userPojo);
     }
 
