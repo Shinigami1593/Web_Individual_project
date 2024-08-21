@@ -1,13 +1,9 @@
 package com.example.lilyclothing.Pojo;
 
-import com.example.lilyclothing.Entity.CartItems;
-import com.example.lilyclothing.Entity.Category;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
-
-import java.util.List;
 
 @Getter
 @Setter

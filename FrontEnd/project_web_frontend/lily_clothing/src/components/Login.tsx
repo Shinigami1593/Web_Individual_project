@@ -1,40 +1,65 @@
-// src/pages/Login.tsx
 import React, { useState } from 'react';
-import { loginUser } from '../ervices/api';
+import axios from 'axios';
+import { useNavigate, Link } from 'react-router-dom';
+import './login.css';
 
 const Login: React.FC = () => {
-  const [username, setUsername] = useState('');
-  const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState<string | null>(null);
+    const navigate = useNavigate();
 
-  const handleLogin = async () => {
-    try {
-      const response = await loginUser({ username, password });
-      console.log('Login successful:', response.data);
-      // Handle success (e.g., save token, redirect)
-    } catch (error) {
-      console.error('Login failed:', error);
-      // Handle error (e.g., show error message)
-    }
-  };
+    const handleSubmit = async (e: React.FormEvent) => {
+        e.preventDefault();
 
-  return (
-    <div>
-      <h2>Login</h2>
-      <input
-        type="text"
-        placeholder="Username"
-        value={username}
-        onChange={(e) => setUsername(e.target.value)}
-      />
-      <input
-        type="password"
-        placeholder="Password"
-        value={password}
-        onChange={(e) => setPassword(e.target.value)}
-      />
-      <button onClick={handleLogin}>Login</button>
-    </div>
-  );
+        try {
+            const response = await axios.post('http://localhost:8080/user/login', { email, password });
+            // Assuming the API returns a success status on successful login
+            if (response.status === 200) {
+                navigate('/dashboard');
+            }
+        } catch (err) {
+            setError('Invalid email or password');
+        }
+    };
+
+    return (
+        <div className="loginWrapper">
+            <div className="loginContainer">
+                <h2>Login</h2>
+                {error && <p className="error">{error}</p>}
+                <form onSubmit={handleSubmit}>
+                    <label htmlFor="email">Email</label>
+                    <input
+                        type="email"
+                        id="email"
+                        name="email"
+                        value={email}
+                        onChange={(e) => setEmail(e.target.value)}
+                        required
+                    />
+
+                    <label htmlFor="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        name="password"
+                        value={password}
+                        onChange={(e) => setPassword(e.target.value)}
+                        required
+                    />
+
+                    <input type="submit" value="Login" />
+                </form>
+                <div className="forgotPassword">
+                    <a href="#">Forgot your password?</a>
+                </div>
+                <div className="register">
+                    <p>Don't have an account?  <Link to="/register">Register</Link></p>
+                </div>
+            </div>
+        </div>
+    );
 };
 
 export default Login;

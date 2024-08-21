@@ -1,9 +1,7 @@
 package com.example.lilyclothing.Entity;
 
 import lombok.*;
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import jakarta.persistence.*;
-import java.util.List;
 
 @Getter
 @Setter
@@ -28,17 +26,5 @@ public class Product {
 
     @Column(name = "quantity", nullable = false)
     private Integer stockQuantity;
-
-    @JsonBackReference
-    @ManyToOne
-    @JoinColumn(name = "category_id", nullable = false)
-    private Category category;
-
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<OrderItem> orderItems;
-
-    @OneToMany(mappedBy = "product", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<CartItems> cartItems;
-
 
 }

@@ -1,0 +1,147 @@
+/* src/components/Header.css */
+#header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-right: 50px;
+    background-color: #e0e0c8;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.06);
+    z-index: 999;
+    position: sticky;
+    top: 0;
+    left: 0;
+    margin-bottom: 0;
+  
+  }
+  
+  #header h1 {
+    text-align: center;
+    color: #004c6d;
+    flex-grow: 1;
+  }
+  
+  #collection {
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+  
+  #collection li {
+    list-style: none;
+    padding: 0 15px;
+    position: relative;
+  }
+  
+  #collection a {
+    font-size: 16px;
+    font-weight: 600;
+    color: rgba(57, 102, 174, 0.83);
+    text-decoration: none;
+    transition: 0.3s ease;
+  }
+  #collection li a:hover,
+#collection li a.active{
+    color: #41bcff;
+}
+#collection li a.active::after,
+#collection li a:hover::after{
+    content: "";
+    width:30%;
+    height: 2px;
+    background-color: #004c6d;
+    position: absolute;
+    bottom: -4px;
+    left: 20px;
+}
+  
+  #user {
+    display: flex;
+    align-items: center;
+  }
+  
+  #user a {
+    margin-left: 19px;
+    color: rgba(57, 102, 174, 0.83);
+    text-decoration: none;
+    position: relative;
+    font-size: 18px;
+}
+  
+  #badge {
+    position: absolute;
+    top: -5px;
+    right: -10px;
+    background-color: #608ca5;
+    color: white;
+    border-radius: 50%;
+    width: 15px;
+    height: 15px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 12px;
+  }
+  
+  .userIcon {
+    font-size: 1.5rem;
+  }
+  .cart-slider {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px; /* Adjust width as needed */
+    height: 100%;
+    background: white;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.2);
+    transform: translateX(100%);
+    transition: transform 0.3s ease-in-out;
+    z-index: 1000;
+    overflow-y: auto;
+}
+
+.cart-slider.open {
+    transform: translateX(0);
+}
+
+.cart-slider .close-btn {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: none;
+    border: none;
+    font-size: 1.5rem;
+    cursor: pointer;
+    color: #004c6d;
+}
+
+.cart-slider-content {
+  padding: 20px; /* General padding around the content */
+  margin-top: 20px; /* Add space below the close button */
+  flex-grow: 1;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.checkout-container {
+  margin-top: 400px;
+  padding: 10px;
+}
+
+.checkout-btn {
+  width: 100%;
+  padding: 10px;
+  background-color: #0c5b7d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.checkout-btn:hover {
+  background-color: #003a54;
+}
