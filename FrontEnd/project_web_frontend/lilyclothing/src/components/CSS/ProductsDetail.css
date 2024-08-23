@@ -1,0 +1,65 @@
+.product-detail {
+    display: flex;
+    padding: 20px;
+  }
+  
+  .product-image {
+    position: relative;
+    max-width: 50%;
+  }
+  
+  .product-image img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 8px;
+  }
+  
+  .wishlist-icon {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+  }
+  
+  .product-info {
+    max-width: 50%;
+    margin-left: 20px;
+  }
+  
+  .product-info h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+  }
+  
+  .product-tag {
+    display: inline-block;
+    background-color: #FF6699; /* LilyClothing pink color */
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+  }
+  
+  .product-price {
+    font-size: 20px;
+    color: #333;
+    margin-bottom: 20px;
+  }
+  
+  .product-description {
+    margin-bottom: 20px;
+  }
+  
+  .add-to-cart-btn {
+    background-color: #66CCCC; /* LilyClothing teal color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .add-to-cart-btn:hover {
+    background-color: #559999; /* Slightly darker shade for hover effect */
+  }
+  
